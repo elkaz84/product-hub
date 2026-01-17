@@ -1,0 +1,13 @@
+{% extends 'catalog/base.html' %}
+
+{% block content %}
+<h1>Welcome to Product Hub</h1>
+<p>Check out our latest products:</p>
+<ul>
+    {% for product in products %}
+        <li>{{ product.name }} - £{{ product.price }}</li>
+    {% empty %}
+        <li>No products found. Go to /admin to add some!</li>
+    {% endfor %}
+</ul>
+{% endblock %}
