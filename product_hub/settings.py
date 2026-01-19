@@ -1,6 +1,8 @@
 from pathlib import Path
 import os
 import dj_database_url
+
+# Load environment variables from env.py (if present)
 if os.path.isfile('env.py'):
     import env
 
@@ -10,13 +12,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
+# DEBUG controlled by env.py
 DEBUG = os.environ.get('DEVELOPMENT') == "True"
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
-
 # Application definition
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -58,21 +59,10 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'product_hub.wsgi.application'
 
-
-# Database
-# This logic uses the Heroku database if available, otherwise local sqlite3
-if 'DATABASE_URL' in os.environ:
-    DATABASES = {
-        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
-    }
-else:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': BASE_DIR / 'db.sqlite3',
-        }
-    }
-
+# DATABASE: use PostgreSQL via DATABASE_URL from env.py (your Neon DB)
+DATABASES = {
+    'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+}
 
 # Password validation
 AUTH_PASSWORD_VALIDATORS = [
@@ -90,13 +80,11 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'UTC'
 USE_I18N = True
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = 'static/'
