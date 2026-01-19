@@ -1,0 +1,18 @@
+{% extends "catalog/base.html" %}
+{% block content %}
+  <h1>Products</h1>
+
+  {% if products %}
+    <ul>
+      {% for product in products %}
+        <li>
+          <strong>{{ product.name }}</strong> –
+          £{{ product.price }}<br>
+          <small>{{ product.description }}</small>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>No products yet. Log into the admin site to add some.</p>
+  {% endif %}
+{% endblock %}
