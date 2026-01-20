@@ -1,18 +1,30 @@
-{% extends "catalog/base.html" %}
-{% block content %}
-  <h1>Products</h1>
+{% extends 'catalog/base.html' %}
 
-  {% if products %}
-    <ul>
-      {% for product in products %}
-        <li>
-          <strong>{{ product.name }}</strong> –
-          £{{ product.price }}<br>
-          <small>{{ product.description }}</small>
-        </li>
-      {% endfor %}
-    </ul>
-  {% else %}
-    <p>No products yet. Log into the admin site to add some.</p>
-  {% endif %}
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <h1 class="display-4 mb-4">Available Products</h1>
+    </div>
+</div>
+
+<div class="row">
+    {% for product in products %}
+    <div class="col-md-4 mb-4">
+        <div class="card h-100 shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title">{{ product.name }}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">${{ product.price }}</h6>
+                <p class="card-text">{{ product.description|truncatewords:20 }}</p>
+            </div>
+            <div class="card-footer bg-transparent border-top-0">
+                <a href="#" class="btn btn-primary w-100">View Details</a>
+            </div>
+        </div>
+    </div>
+    {% empty %}
+    <div class="col-12">
+        <p class="alert alert-info">No products found. Add some in the admin panel!</p>
+    </div>
+    {% endfor %}
+</div>
 {% endblock %}
