@@ -1,0 +1,65 @@
+{% extends 'catalog/base.html' %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+        <!-- Breadcrumb -->
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'product_list' %}">Home</a></li>
+                <li class="breadcrumb-item active">{{ product.name }}</li>
+            </ol>
+        </nav>
+
+        <!-- Product Info -->
+        <div class="card shadow-sm mb-4">
+            <div class="card-body">
+                <h1 class="display-5">{{ product.name }}</h1>
+                <p class="text-muted">Added on {{ product.created_at|date:"F d, Y" }}</p>
+                <hr>
+                <h3 class="text-success">${{ product.price }}</h3>
+                <p class="lead mt-3">{{ product.description }}</p>
+            </div>
+        </div>
+
+        <!-- Review Form Section -->
+        <div class="card mb-5 shadow-sm border-primary">
+            <div class="card-body">
+                <h4 class="card-title mb-3">Leave a Review</h4>
+                {% if user.is_authenticated %}
+                    <form method="post">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <button type="submit" class="btn btn-primary">Post Review</button>
+                    </form>
+                {% else %}
+                    <div class="alert alert-info">
+                        Please <a href="{% url 'login' %}">login</a> to leave a review.
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+
+        <!-- Reviews List -->
+        <h3 class="mb-3">Customer Reviews</h3>
+        {% for review in product.reviews.all %}
+            <div class="card mb-3 border-0 shadow-sm">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                        <h6 class="fw-bold">{{ review.user.username }}</h6>
+                        <span class="badge bg-warning text-dark">Rating: {{ review.rating }}/5</span>
+                    </div>
+                    <p class="mb-1 mt-2">{{ review.content }}</p>
+                    <small class="text-muted">{{ review.created_at|timesince }} ago</small>
+                </div>
+            </div>
+        {% empty %}
+            <p class="text-muted italic">No reviews yet. Be the first to leave one!</p>
+        {% endfor %}
+        
+        <div class="mt-4 mb-5">
+            <a href="{% url 'product_list' %}" class="btn btn-outline-secondary">Back to Products</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

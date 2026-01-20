@@ -17,7 +17,8 @@
                 <p class="card-text">{{ product.description|truncatewords:20 }}</p>
             </div>
             <div class="card-footer bg-transparent border-top-0">
-                <a href="#" class="btn btn-primary w-100">View Details</a>
+                <!-- This is the important link that was missing -->
+                <a href="{% url 'product_detail' product.pk %}" class="btn btn-primary w-100">View Details</a>
             </div>
         </div>
     </div>
