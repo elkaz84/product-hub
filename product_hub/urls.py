@@ -1,7 +1,8 @@
 from django.contrib import admin
-from django.urls import path, include # Add include here
+from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('catalog.urls')), # This makes catalog the home page
+    path('accounts/', include('django.contrib.auth.urls')), # This adds login/logout
+    path('', include('catalog.urls')),
 ]
