@@ -58,10 +58,21 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'product_hub.wsgi.application'
 
-# Database using DATABASE_URL (from env.py)
-DATABASES = {
-    'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
-}
+# -----------------------------
+# DATABASE (robust for local)
+# -----------------------------
+# Use DATABASE_URL when provided (Heroku), otherwise fall back to sqlite for local dev
+if os.environ.get('DATABASE_URL'):
+    DATABASES = {
+        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+    }
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
 
 AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
@@ -74,6 +85,18 @@ LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'UTC'
 USE_I18N = True
 USE_TZ = True
+
+# -----------------------------
+# Proxy / Security (Heroku)
+# -----------------------------
+# Tell Django to trust X-Forwarded-Proto header provided by proxy (Heroku)
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+# Add Heroku HTTPS origins for CSRF checks (Guidebook requirement)
+# You can add your app-specific origin if you prefer, e.g. "https://your-app-name.herokuapp.com"
+CSRF_TRUSTED_ORIGINS = [
+    "https://*.herokuapp.com",
+]
 
 # Static files
 STATIC_URL = 'static/'
