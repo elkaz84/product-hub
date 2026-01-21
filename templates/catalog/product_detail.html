@@ -3,6 +3,17 @@
 {% block content %}
 <div class="row">
     <div class="col-md-8 offset-md-2">
+
+        <!-- Django messages (success / error / info) -->
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                    {{ message }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            {% endfor %}
+        {% endif %}
+
         <!-- Breadcrumb -->
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
@@ -42,20 +53,51 @@
 
         <!-- Reviews List -->
         <h3 class="mb-3">Customer Reviews</h3>
-        {% for review in product.reviews.all %}
-            <div class="card mb-3 border-0 shadow-sm">
-                <div class="card-body">
-                    <div class="d-flex justify-content-between">
-                        <h6 class="fw-bold">{{ review.user.username }}</h6>
-                        <span class="badge bg-warning text-dark">Rating: {{ review.rating }}/5</span>
+
+        {% if reviews %}
+            {% for review in reviews %}
+                <div class="card mb-3 border-0 shadow-sm">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between">
+                            <h6 class="fw-bold">{{ review.user.username }}</h6>
+                            <span class="badge bg-warning text-dark">Rating: {{ review.rating }}/5</span>
+                        </div>
+                        <p class="mb-1 mt-2">{{ review.content }}</p>
+                        <small class="text-muted">{{ review.created_at|timesince }} ago</small>
+
+                        <!-- Edit/Delete for the review author -->
+                        {% if user.is_authenticated and user == review.user %}
+                            <div class="mt-2">
+                                <a href="{% url 'edit_review' review.pk %}" class="btn btn-sm btn-outline-secondary">Edit</a>
+                                <a href="{% url 'delete_review' review.pk %}" class="btn btn-sm btn-outline-danger">Delete</a>
+                            </div>
+                        {% endif %}
                     </div>
-                    <p class="mb-1 mt-2">{{ review.content }}</p>
-                    <small class="text-muted">{{ review.created_at|timesince }} ago</small>
                 </div>
-            </div>
-        {% empty %}
-            <p class="text-muted italic">No reviews yet. Be the first to leave one!</p>
-        {% endfor %}
+            {% endfor %}
+        {% else %}
+            {% for review in product.reviews.all %}
+                <div class="card mb-3 border-0 shadow-sm">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between">
+                            <h6 class="fw-bold">{{ review.user.username }}</h6>
+                            <span class="badge bg-warning text-dark">Rating: {{ review.rating }}/5</span>
+                        </div>
+                        <p class="mb-1 mt-2">{{ review.content }}</p>
+                        <small class="text-muted">{{ review.created_at|timesince }} ago</small>
+
+                        {% if user.is_authenticated and user == review.user %}
+                            <div class="mt-2">
+                                <a href="{% url 'edit_review' review.pk %}" class="btn btn-sm btn-outline-secondary">Edit</a>
+                                <a href="{% url 'delete_review' review.pk %}" class="btn btn-sm btn-outline-danger">Delete</a>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            {% empty %}
+                <p class="text-muted italic">No reviews yet. Be the first to leave one!</p>
+            {% endfor %}
+        {% endif %}
         
         <div class="mt-4 mb-5">
             <a href="{% url 'product_list' %}" class="btn btn-outline-secondary">Back to Products</a>
