@@ -16,7 +16,6 @@ ALLOWED_HOSTS = ['localhost', '127.0.0.1', '.herokuapp.com']
 # Application definition
 INSTALLED_APPS = [
     # Place cloudinary_storage first so it takes precedence for media storage
-    'cloudinary_storage',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -24,6 +23,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'cloudinary',
     'django.contrib.staticfiles',
+    'cloudinary_storage',
     'catalog',
 ]
 
@@ -99,24 +99,20 @@ CSRF_TRUSTED_ORIGINS = [
 
 # Static files
 STATIC_URL = 'static/'
-
-# Only include STATICFILES_DIRS when the folder actually exists to avoid build warnings
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')] if os.path.exists(os.path.join(BASE_DIR, 'static')) else []
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-# Use WhiteNoise for static files on Heroku
+# Use WhiteNoise for static files on Heroku (prevents collectstatic errors)
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-# Cloudinary - media storage (user uploaded media)
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+#Cloudinary - media storage (user uploaded media)
+#DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
-CLOUDINARY_STORAGE = {
-    'CLOUDINARY_URL': os.environ.get('CLOUDINARY_URL')
-}
+#CLOUDINARY_STORAGE = {
+    #'CLOUDINARY_URL': os.environ.get('CLOUDINARY_URL')
+#}
 
-# MEDIA_ROOT is used for local development file serving (DEBUG=True)
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
