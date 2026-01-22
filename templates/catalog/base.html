@@ -9,21 +9,39 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
+        /* Accessibility: Skip to content link */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: #0d6efd;
+            color: white;
+            padding: 8px;
+            z-index: 100;
+            transition: top 0.3s;
+        }
+        .skip-link:focus { top: 0; }
+
         body { font-family: 'Inter', sans-serif; background-color: #f8f9fa; display: flex; flex-direction: column; min-height: 100vh; }
-        .navbar { shadow: 0 2px 4px rgba(0,0,0,.1); }
+        .navbar { box-shadow: 0 2px 4px rgba(0,0,0,.1); }
         .main-content { flex: 1; }
         footer { background: #212529; color: white; padding: 2rem 0; margin-top: 3rem; }
+        /* Improved contrast for footer secondary text */
+        .footer-text-muted { color: #ced4da !important; }
         .btn-primary { background-color: #0d6efd; border: none; padding: 0.6rem 1.2rem; font-weight: 600; }
         .card { border: none; border-radius: 12px; transition: transform 0.2s; }
     </style>
 </head>
 <body>
+    <!-- Accessibility: Skip to main content for keyboard users -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
 
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
         <div class="container">
             <a class="navbar-brand fw-bold" href="{% url 'product_list' %}">📦 Product Hub</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <!-- Added aria-label for mobile menu -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
@@ -37,7 +55,8 @@
                         <li class="nav-item">
                             <form action="{% url 'logout' %}" method="post" class="d-inline">
                                 {% csrf_token %}
-                                <button type="submit" class="btn btn-sm btn-outline-light ms-2">Logout</button>
+                                <!-- Added aria-label for logout button -->
+                                <button type="submit" class="btn btn-sm btn-outline-light ms-2" aria-label="Logout from your account">Logout</button>
                             </form>
                         </li>
                     {% else %}
@@ -61,8 +80,8 @@
         {% endif %}
     </div>
 
-    <!-- Main Content -->
-    <main class="container main-content">
+    <!-- Main Content - Added ID for skip link -->
+    <main class="container main-content" id="main-content">
         {% block content %}{% endblock %}
     </main>
 
@@ -70,7 +89,8 @@
     <footer>
         <div class="container text-center">
             <p class="mb-1">© 2026 Product Hub MVP</p>
-            <small class="text-secondary">Built with Django & Cloudinary</small>
+            <!-- Improved contrast class -->
+            <small class="footer-text-muted">Built with Django & Cloudinary</small>
         </div>
     </footer>
 
