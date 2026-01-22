@@ -99,10 +99,12 @@ CSRF_TRUSTED_ORIGINS = [
 
 # Static files
 STATIC_URL = 'static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+
+# Only include STATICFILES_DIRS when the folder actually exists to avoid build warnings
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')] if os.path.exists(os.path.join(BASE_DIR, 'static')) else []
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-# Use WhiteNoise for static files on Heroku (prevents collectstatic errors)
+# Use WhiteNoise for static files on Heroku
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Cloudinary - media storage (user uploaded media)
@@ -112,7 +114,9 @@ CLOUDINARY_STORAGE = {
     'CLOUDINARY_URL': os.environ.get('CLOUDINARY_URL')
 }
 
+# MEDIA_ROOT is used for local development file serving (DEBUG=True)
 MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 

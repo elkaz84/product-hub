@@ -1,0 +1,13 @@
+/* Fixes the contrast issues for Lighthouse */
+body { color: #212529; }
+footer { background: #1a1d20; color: #ffffff; }
+.footer-text-muted { color: #dee2e6 !important; }
+.btn-primary { background-color: #0056b3; border: none; }
+
+/* The "Skip to Content" link styling */
+.skip-link {
+    position: absolute; top: -40px; left: 0;
+    background: #0056b3; color: white; padding: 8px; z-index: 100;
+    transition: top 0.3s;
+}
+.skip-link:focus { top: 0; }
