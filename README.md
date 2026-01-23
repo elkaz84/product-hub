@@ -4,7 +4,6 @@
 
 Product Hub is a **Product Review and Inventory Management** system built with Django. This application allows administrators to manage a product catalog while providing a platform for users to read and leave reviews. It demonstrates a full-stack CRUD application with secure user authentication and responsive design.
 
-
 ## 🚀 Agile Methodology
 
 This project was developed using Agile principles to ensure a structured and iterative development process.
@@ -18,7 +17,10 @@ This project was developed using Agile principles to ensure a structured and ite
 Before coding, I created wireframes to plan the layout for both desktop and mobile. This ensured a consistent user experience across all devices.
 
 ### Desktop Tablet and Mobile Wireframe
-<img width="2385" height="1907" alt="wireframe_login_balsamiq" src="https://github.com/user-attachments/assets/61248d06-b868-4114-adae-1aa9743ebf0f" />
+<img width="2385" height="1907" alt="wireframe_detail_balsamiq" src="https://github.com/user-attachments/assets/49d4cce7-c451-4c6c-8db7-e67628fa2000" />
+<img width="2385" height="1907" alt="wireframe_admin_balsamiq" src="https://github.com/user-attachments/assets/8af013fb-0bdf-48ef-92f0-258ff2421edf" />
+<img width="2385" height="1907" alt="wireframe_login_balsamiq" src="https://github.com/user-attachments/assets/772ed37b-e2a0-4f3b-beb4-0b89284866d7" />
+<img width="2385" height="1907" alt="product_hub_balsamiq" src="https://github.com/user-attachments/assets/42515e97-d4a3-414c-8afd-27dce0cdb04d" />
 
 ## 🛠️ Technologies Used
 
@@ -156,15 +158,9 @@ Static files served via WhiteNoise.
 Media files hosted on Cloudinary.
 PostgreSQL database via Heroku/NeonDB.
 📸 Screenshots
-Home Page
-<img width="940" height="441" alt="Home page" src="https://github.com/user-attachments/assets/8713943b-d672-4b6d-8aba-b6876c5b53f4" />
-
-Admin panel 
-<img width="941" height="452" alt="Admin page " src="https://github.com/user-attachments/assets/3f6ec385-8606-4b68-b5df-2bc4eb476e89" />
-
-Product Detail & use Review Form
-
-<img width="947" height="443" alt="User review page" src="https://github.com/user-attachments/assets/dcb96c97-0e92-42c4-89c8-cc14341368c1" />
+<img width="940" height="441" alt="Home page" src="https://github.com/user-attachments/assets/05b6887b-b9d8-4b9c-831b-698b4b4115de" />
+<img width="941" height="452" alt="Admin page " src="https://github.com/user-attachments/assets/32635876-c725-4b69-b7bc-2afa6283ef89" />
+<img width="947" height="443" alt="User review page" src="https://github.com/user-attachments/assets/75606cce-055e-48a8-b5bc-fdcdc3fcbd46" />
 
 Lighthouse Scores
 
@@ -240,10 +236,3 @@ Feel free to contribute or raise issues.
 
 
 
-
-
-
-
-Your conversation is getting long. We recommend starting a new chat for better quality responses.
-Chat  
-Image
