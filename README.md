@@ -158,23 +158,23 @@ Static files served via WhiteNoise.
 Media files hosted on Cloudinary.
 PostgreSQL database via Heroku/NeonDB.
 📸 Screenshots
-<img width="940" height="441" alt="Home page" src="https://github.com/user-attachments/assets/05b6887b-b9d8-4b9c-831b-698b4b4115de" />
-<img width="941" height="452" alt="Admin page " src="https://github.com/user-attachments/assets/32635876-c725-4b69-b7bc-2afa6283ef89" />
-<img width="947" height="443" alt="User review page" src="https://github.com/user-attachments/assets/75606cce-055e-48a8-b5bc-fdcdc3fcbd46" />
+
+<img width="941" height="452" alt="Image" src="https://github.com/user-attachments/assets/f5cc2287-0a87-48ed-953c-10b1abd89cc6" />
+<img width="941" height="452" alt="Image" src="https://github.com/user-attachments/assets/dfaff34e-d011-4e2c-81a0-d8bb383b817f" />
+<img width="947" height="443" alt="Image" src="https://github.com/user-attachments/assets/e0efa94f-f5ca-4bd8-aaeb-2281b5b8a3df" />
 
 Lighthouse Scores
 
 📈 Responsiveness & Accessibility
 Responsive design tested on desktop, tablet, and mobile devices.
 Accessibility features include skip links, ARIA labels, keyboard navigation support, and color contrast compliance.
-TODO: Paste responsiveness screenshots and accessibility audit results here
-
 🔍 SEO & Best Practices
 Meta tags for title, description, and Open Graph included.
 Semantic HTML used for better SEO and accessibility.
 Lighthouse audit scores:
-<img width="1249" height="880" alt="image" src="https://github.com/user-attachments/assets/b73630dd-de52-48af-9b82-0c48b347d07c" />
-![image.png](attachment:d6794446-1f1f-4a85-8e11-eda92b1f078f:image.png)
+
+<img width="512" height="412" alt="Image" src="https://github.com/user-attachments/assets/07983d5c-5298-49a0-9cd3-d875ccc8cadd" />
+<img width="496" height="380" alt="Image" src="https://github.com/user-attachments/assets/cb233d66-0ad7-41a9-bc8c-dd5b0b7f93af" />
 
 🗂️ Agile Evidence
 GitHub Project Board link: TODO
