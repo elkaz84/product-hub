@@ -21,9 +21,26 @@ Before coding, I created wireframes to plan the layout for both desktop and mobi
 <img width="2385" height="1907" alt="wireframe_admin_balsamiq" src="https://github.com/user-attachments/assets/8af013fb-0bdf-48ef-92f0-258ff2421edf" />
 <img width="2385" height="1907" alt="wireframe_login_balsamiq" src="https://github.com/user-attachments/assets/772ed37b-e2a0-4f3b-beb4-0b89284866d7" />
 <img width="2385" height="1907" alt="product_hub_balsamiq" src="https://github.com/user-attachments/assets/42515e97-d4a3-414c-8afd-27dce0cdb04d" />  
+
+🚢 Deployment (Planned / Completed)
+Deployed to Heroku using GitHub integration.
+Static files served via WhiteNoise.
+Media files hosted on Cloudinary.
+PostgreSQL database via Heroku/NeonDB.
+
+📸 Screenshots
 <img width="940" height="441" alt="Home page" src="https://github.com/user-attachments/assets/1406bfda-5706-427f-99ce-d4eda34fae33" />
 <img width="941" height="452" alt="Admin page " src="https://github.com/user-attachments/assets/f28d32ca-321d-4d18-9342-983d3c196b93" />
 <img width="947" height="443" alt="User review page" src="https://github.com/user-attachments/assets/5491c108-1240-46d4-acd4-8e9a2c735c24" />
+
+📈 Responsiveness & Accessibility
+Responsive design tested on desktop, tablet, and mobile devices.
+Accessibility features include skip links, ARIA labels, keyboard navigation support, and color contrast compliance.
+
+🔍 SEO & Best Practices
+Meta tags for title, description, and Open Graph included.
+Semantic HTML used for better SEO and accessibility.
+Lighthouse audit scores:
 <img width="512" height="412" alt="Performance1 " src="https://github.com/user-attachments/assets/5654202e-b58e-4ba5-9663-31f9231b9164" />
 <img width="496" height="380" alt="Performance2" src="https://github.com/user-attachments/assets/4f054ee5-355a-475f-b1ab-c3b4e33d222c" />
 
@@ -164,9 +181,6 @@ Media files hosted on Cloudinary.
 PostgreSQL database via Heroku/NeonDB.
 📸 Screenshots
 
-<img width="941" height="452" alt="Image" src="https://github.com/user-attachments/assets/f5cc2287-0a87-48ed-953c-10b1abd89cc6" />
-<img width="941" height="452" alt="Image" src="https://github.com/user-attachments/assets/dfaff34e-d011-4e2c-81a0-d8bb383b817f" />
-<img width="947" height="443" alt="Image" src="https://github.com/user-attachments/assets/e0efa94f-f5ca-4bd8-aaeb-2281b5b8a3df" />
 
 Lighthouse Scores
 
@@ -177,9 +191,6 @@ Accessibility features include skip links, ARIA labels, keyboard navigation supp
 Meta tags for title, description, and Open Graph included.
 Semantic HTML used for better SEO and accessibility.
 Lighthouse audit scores:
-
-<img width="512" height="412" alt="Image" src="https://github.com/user-attachments/assets/07983d5c-5298-49a0-9cd3-d875ccc8cadd" />
-<img width="496" height="380" alt="Image" src="https://github.com/user-attachments/assets/cb233d66-0ad7-41a9-bc8c-dd5b0b7f93af" />
 
 🗂️ Agile Evidence
 GitHub Project Board link: TODO
@@ -215,6 +226,7 @@ python manage.py test
 # Heroku commands (run in Heroku CLI)
 heroku run python manage.py migrate --app <your-app-name>
 heroku run python manage.py collectstatic --noinput --app <your-app-name>
+
 🐞 Known Issues & Troubleshooting
 Admin panel unstyled after deployment:
 Ensure collectstatic ran successfully on Heroku.
@@ -224,17 +236,25 @@ Images not showing on live site:
 Confirm CLOUDINARY_URL is set in Heroku Config Vars.
 Upload images via live admin to store on Cloudinary.
 Heroku filesystem is ephemeral; local uploads won’t persist.
+
 🔮 Future Improvements
 Add product search and filtering.
 User profiles and avatars.
 Email notifications for reviews.
 Automated CI/CD with tests and linting.
+
 🙏 Credits & Acknowledgements
 Code Institute LMS and tutors
 Bootstrap, Cloudinary, Heroku
 Unsplash and Pexels for free images
 ChatGPT for code and documentation assistance
 W3Schools and MDN for web development references
+## 🤖 AI Usage
+This project utilized AI as a development assistant. Specifically, AI was used for:
+- **Planning:** Scoping the MVP and defining User Stories.
+- **Debugging:** Troubleshooting coding and configurationas well as deployment errors.
+- **Documentation:** Structuring this README and refining technical explanations.
+- **UI/UX:** Suggestions for Bootstrap styling and responsive layouts.
 
 Thank you for visiting Product Hub!
 Feel free to contribute or raise issues.
