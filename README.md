@@ -20,7 +20,12 @@ Before coding, I created wireframes to plan the layout for both desktop and mobi
 <img width="2385" height="1907" alt="wireframe_detail_balsamiq" src="https://github.com/user-attachments/assets/49d4cce7-c451-4c6c-8db7-e67628fa2000" />
 <img width="2385" height="1907" alt="wireframe_admin_balsamiq" src="https://github.com/user-attachments/assets/8af013fb-0bdf-48ef-92f0-258ff2421edf" />
 <img width="2385" height="1907" alt="wireframe_login_balsamiq" src="https://github.com/user-attachments/assets/772ed37b-e2a0-4f3b-beb4-0b89284866d7" />
-<img width="2385" height="1907" alt="product_hub_balsamiq" src="https://github.com/user-attachments/assets/42515e97-d4a3-414c-8afd-27dce0cdb04d" />
+<img width="2385" height="1907" alt="product_hub_balsamiq" src="https://github.com/user-attachments/assets/42515e97-d4a3-414c-8afd-27dce0cdb04d" />  
+<img width="940" height="441" alt="Home page" src="https://github.com/user-attachments/assets/1406bfda-5706-427f-99ce-d4eda34fae33" />
+<img width="941" height="452" alt="Admin page " src="https://github.com/user-attachments/assets/f28d32ca-321d-4d18-9342-983d3c196b93" />
+<img width="947" height="443" alt="User review page" src="https://github.com/user-attachments/assets/5491c108-1240-46d4-acd4-8e9a2c735c24" />
+<img width="512" height="412" alt="Performance1 " src="https://github.com/user-attachments/assets/5654202e-b58e-4ba5-9663-31f9231b9164" />
+<img width="496" height="380" alt="Performance2" src="https://github.com/user-attachments/assets/4f054ee5-355a-475f-b1ab-c3b4e33d222c" />
 
 ## 🛠️ Technologies Used
 
